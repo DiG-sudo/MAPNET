@@ -1,0 +1,74 @@
+paths:
+  raw_data_dir: data/circRNA-RBP
+  circRNA2vec_weights: weights/circRNA2Vec.txt
+  feature_dir: generated_features
+  output_dir: outputs
+
+data:
+  sequence_length: 101
+  kmer_size: 10
+  circRNA2vec_dim: 30
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_batch_fraction: 0.20
+  batch_size_base: 64
+  batch_size_max: 512
+
+train:
+  seed: 55
+  epochs: 100
+  learning_rate: 0.0005
+  weight_decay: 0.00001
+  patience: 10
+  loss_improve_threshold: 0.0001
+
+model:
+  num_classes: 2
+  seq_input_dim: 192
+  token_dim: 64
+  fusion_out_dim: 128
+  num_scales: 7
+  router_temperature: 1.0
+  num_experts_grid: [2, 4, 6, 8, 10, 12]
+
+runtime:
+  device: 0
+
+proteins:
+  - WTAP
+  - FOX2
+  - FXR1
+  - TNRC6
+  - AGO1
+  - AGO2
+  - AGO3
+  - ALKBH5
+  - AUF1
+  - C17ORF85
+  - C22ORF28
+  - CAPRIN1
+  - DGCR8
+  - EIF4A3
+  - EWSR1
+  - FMRP
+  - FUS
+  - FXR2
+  - HNRNPC
+  - HUR
+  - IGF2BP1
+  - IGF2BP2
+  - IGF2BP3
+  - LIN28A
+  - LIN28B
+  - METTL3
+  - MOV10
+  - PTB
+  - PUM2
+  - QKI
+  - SFRS1
+  - TAF15
+  - TDP43
+  - TIA1
+  - TIAL1
+  - U2AF65
+  - ZC3H7B
